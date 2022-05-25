@@ -1,3 +1,8 @@
+<?php
+session_start();
+unset($_SESSION['correo']);
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +36,7 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form action="php/login_conductor_be.php" method="POST"
-                     class="formulario__login">
+                    <form action="php/login_conductor_be.php" method="POST" class="formulario__login">
                         <h2>Iniciar Sesión</h2>
                        
                         <input type="text" placeholder="Correo Electronico"name="correo" > 
@@ -54,15 +58,10 @@
                         <input type="text" placeholder="Nombre usuario" name="Nombre_usuario_conductor">
                         <input type="password" placeholder="Contrasena" name="contrasena">
                         <button>Regístrarse</button>
-                   <!-- </form>
 
-                      Register
-                      <form action="php/registro_usuario_be.php" method="POST" class="formulario__register_usuario">
-                        <h2>Regístrarse cliente</h2>
-                        <input type="text" placeholder="nombre_cliente" name="nombre_cliente">
-                        <input type="password" placeholder="Contrasena" name="contrasena_cliente">
-                        <button>Regístrarse</button>
-                    </form> -->
+
+
+                     </form> 
                 </div>
             </div>
 

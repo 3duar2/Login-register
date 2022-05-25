@@ -1,4 +1,7 @@
 <?php
+sesion_start();
+if(isset($_SESSION['correo']))
+{
 
 include "conexion_be.php";
 
@@ -30,6 +33,8 @@ if($ejecutar){
           windows.location = "../index.php";
           </script>
           ';
+          
+
    }else{
     echo '
          <script>
@@ -42,4 +47,8 @@ if($ejecutar){
 
     $stmt->close();
     mysqli_close($conexion);
+}
+else{
+      echo "no validado";
+}
 ?>
