@@ -28,15 +28,15 @@
 
                <div>
                     <!--Register carga-->
-                     <form action="agregar_carga.php" method="POST" class="formulario_agregar_carga">
+                     <form action="agregar_carga.php" method="POST" class="formulario_agregar_carga_usuario">
                         <h2>Datos del producto</h2>
 
                         <h2> Dimensiones: </h2>
-                        <input type="text" placeholder="Alto:" name="alto" value="12">
-                        <input type="text" placeholder="Ancho:" name="ancho" value="12">
-                        <input type="text" placeholder="Largo:" name="largo" value="12" >
+                        <input type="text" placeholder="Alto:" name="alto_carga" value="12">
+                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="12">
+                        <input type="text" placeholder="Largo:" name="largo_carga" value="12" >
 
-                        <h2> Tipo de camion: </h2>
+                      <!--  <h2> Tipo de camion: </h2>
 
                        <label for="estado">Estado de la carga:</label>
 
@@ -51,13 +51,13 @@
                              
 
                            
-                        </select> 
+                        </select> -->
                        
                        <!-- <input type="text" placeholder="Solido:" name="solido" >
                         <input type="text" placeholder="Liquido:" name="liquido">
                         <input type="text" placeholder="Gaseoso:" name="gaseoso"> -->
 
-                        <h2> Direccion de recogida: </h2>
+                       <!-- <h2> Direccion de recogida: </h2>
                         
                         <input type="text" placeholder="Region:" name="region_inicio" value="12">
                         <input type="text" placeholder="Comuna:" name="comuna_inicio" value="12">
@@ -70,7 +70,7 @@
                         <input type="text" placeholder="Direccion:" value="12" name="direccion_destino">
                         <input type="text" placeholder="Casa, Departamento N°:" value="12" name="casa-departamento-n_destino">
 
-                        
+-->
                         
                         <button> Agregar Carga </button>
                    </form>

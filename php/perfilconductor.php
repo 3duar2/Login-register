@@ -33,7 +33,7 @@ echo"<h2>nombre </h2>".$_SESSION['nombre'];
                     <div class="caja__trasera-login">
                         <h3>Ver cargas disponibles</h3>
                         <p>Ver cargas</p>
-                        <form action="ir_a.php" method="POST" class="agregar_carga">
+                        <form action="ir_a_carga_conductor.php" method="POST" class="agregar_carga">
                         <button id="btn__iniciar-sesion">Ver Cargas</button>
                         
                         

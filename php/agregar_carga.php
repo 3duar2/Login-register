@@ -7,9 +7,10 @@ if(isset($_SESSION['correo']))
 
 include "conexion_be.php";
 
-$alto = $_POST ['alto'];
-$ancho = $_POST ['ancho'];
-$largo = $_POST ['largo'];
+$alto = $_POST ['alto_carga'];
+$ancho = $_POST ['ancho_carga'];
+$largo = $_POST ['largo_carga'];
+
 /*
 $Cargas_de_tipo_seca = $_POST ['cargas_de_tipo_seca'];
 $Refrigerados = $_POST ['refrigerados'];
@@ -19,7 +20,7 @@ $Tolva = $_POST ['tolva'];
 $Maquinarias = $_POST ['maquinarias'];
 $Contenedores_especiales = $_POST ['contenedores_especiales'];
 */ 
-$estado = $_POST ['estado'];
+/*$estado = $_POST ['estado'];
 $region_inicio = $_POST ['region_inicio'];
 $comuna_inicio = $_POST ['comuna_inicio'];
 $direccion_inicio = $_POST ['direccion_inicio'];
@@ -28,12 +29,12 @@ $region_destino = $_POST ['region_destino'];
 $comuna_destino = $_POST ['comuna_destino'];
 $direccion_destino = $_POST ['direccion_destino'];
 $casa_departamento_n_destino = $_POST ['casa-departamento-n_destino'];
+*/
 
 
+$stmt = $conexion->prepare("INSERT INTO carga(alto_carga, ancho_carga, largo_carga,) VALUE (?,?,?)");
 
-$stmt = $conexion->prepare("INSERT INTO agregar_carga(alto, ancho, largo, region_inicio, comuna_inicio, direccion_inicio, casa_departamento_n_inicio, region_destino, comuna_destino, direccion_destino, casa_departamento_n_destino, estado) VALUE (?,?,?,?,?,?,?,?,?,?,?,?)");
-
-$stmt->bind_param("ssssssssssss",$alto, $ancho, $largo, $region_inicio , $comuna_inicio, $direccion_inicio, $casa_departamento_n_inicio, $region_destino, $comuna_destino, $direccion_destino, $casa_departamento_n_destino,$estado);
+$stmt->bind_param("sss",$alto, $ancho, $largo);
 
 
 $ejecutar = $stmt->execute();
@@ -42,7 +43,7 @@ if($ejecutar){
   
   header("location: exitosamente.php");
 
-  $_SESSION['estado'] = $estado;
+ //$_SESSION['estado'] = $estado;
   
   
 
@@ -52,6 +53,7 @@ if($ejecutar){
           windows.location = "../exitosamente.php";
           </script>
           ';
+          header("location: exitosamente.php");
 
 
          
@@ -68,3 +70,4 @@ if($ejecutar){
     $stmt->close();
     mysqli_close($conexion);
 
+?>
