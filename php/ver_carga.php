@@ -67,7 +67,7 @@ include 'conexion_be.php';
         </tr>
         <?php
         
-        $sql = "SELECT * FROM agregar_carga ";
+        $sql = "SELECT * FROM carga ";
 $result = mysqli_query($conexion,$sql);
 
         while($row = mysqli_fetch_array($result)){
@@ -75,10 +75,10 @@ $result = mysqli_query($conexion,$sql);
 
         ?>
         <tr>
-            <td><?php echo $row['id']?></td>
-            <td><?php echo $row['alto']?></td>
-            <td><?php echo $row['ancho']?></td>
-            <td><?php echo $row['largo']?></td>
+            <td><?php echo $row['id_carga']?></td>
+            <td><?php echo $row['alto_carga']?></td>
+            <td><?php echo $row['ancho_carga']?></td>
+            <td><?php echo $row['largo_carga']?></td>
             <td><?php echo $row['region_inicio']?></td>
             <td><?php echo $row['comuna_inicio']?></td>
             <td><?php echo $row['direccion_inicio']?></td>
@@ -87,7 +87,7 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $row['comuna_destino']?></td>
             <td><?php echo $row['direccion_destino']?></td>
             <td><?php echo $row['casa_departamento_n_destino']?></td>
-            <td><?php echo $row['estado']?></td>
+            <td><?php echo $row['id_estado']?></td>
         </tr> 
 <?php
 
