@@ -22,12 +22,12 @@ session_destroy();
             <div class="contenedor__todo">
                 <div class="caja__trasera">
                     <div class="caja__trasera-login">
-                        <h3>¿Ya tienes una cuenta conductor?</h3>
+                        <h3>¿Ya tienes una cuenta Usuario?</h3>
                         <p>Inicia sesión para entrar en la página</p>
                         <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta cliente?</h3>
+                        <h3>¿Aún no tienes una cuenta Cliente?</h3>
                         <p>Regístrate para que puedas iniciar sesión</p>
                         <button id="btn__registrarse">Regístrarse</button>
                     </div>
@@ -36,27 +36,24 @@ session_destroy();
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form action="php/login_conductor_be.php" method="POST" class="formulario__login">
+                    <form action="php/login_usuario.php" method="POST" class="formulario__login">
                         <h2>Iniciar Sesión</h2>
                        
-                        <input type="text" placeholder="Correo Electronico"name="correo_conductor" > 
-                        <input type="password" placeholder="Contraseña" name="contrasena_conductor">
+                        <input type="text" placeholder="Correo Electronico"name="correo_usuario" > 
+                        <input type="password" placeholder="Contraseña" name="contrasena_usuario">
                         <button>Entrar</button>
                     </form>
 
                     <!--Register-->
-                    <form action="php/registro_conductor_be.php" method="POST" class="formulario__register">
-                        <h2>Regístrarse socio conductor</h2>
-                        <input type="text" placeholder="Nombre" name="nombre_conductor">
-                        <input type="text" placeholder="Apellido" name="apellido_conductor">
-                        <input type="text" placeholder="Edad" name="edad_conductor" >
-                        <input type="text" placeholder="Cedula identidad" name="cedula_conductor" >
-                        <input type="text" placeholder="Correo Electronico" name="correo_conductor">
-                        <input type="text" placeholder="Modelo" name="modelo">
-                        <input type="text" placeholder="Patente" name="patente">
-                        <input type="text" placeholder="Marca" name="marca">
-                        <input type="text" placeholder="Nombre usuario" name="Nombre_usuario_conductor">
-                        <input type="password" placeholder="Contrasena" name="contrasena_conductor">
+                    <form action="php/registro_usuario_be.php" method="POST" class="formulario__register">
+                        <h2>Regístrarse como Usuario</h2>
+                        <input type="text" placeholder="Nombre" name="nombre_usuario">
+                        <input type="text" placeholder="Apellido" name="apellido_usuario">
+                        <input type="text" placeholder="Edad" name="edad_usuario" >
+                        <input type="text" placeholder="Cedula identidad" name="cedula_usuario" >
+                        <input type="text" placeholder="Correo Electronico" name="correo_usuario">
+                        <input type="text" placeholder="Nombre usuario" name="Nombre_usuario_usuario">
+                        <input type="password" placeholder="Contraseña" name="contrasena_usuario">
                         <button>Regístrarse</button>
 
 

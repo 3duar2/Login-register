@@ -1,27 +1,25 @@
 <?php
-sesion_start();
-if(isset($_SESSION['correo']))
-{
+
 
 include "conexion_be.php";
 
-$nombre = $_POST ['nombre'];
-$apellido = $_POST ['apellido'];
-$edad = $_POST ['edad'];
-$cedula = $_POST ['cedula'];
-$correo = $_POST ['correo'];
-$modelo = $_POST ['modelo'];
-$patente = $_POST ['patente'];
-$marca = $_POST ['marca'];
+$nombre = $_POST ['nombre_conductor'];
+$apellido = $_POST ['apellido_conductor'];
+$edad = $_POST ['edad_conductor'];
+$cedula = $_POST ['cedula_conductor'];
+$correo = $_POST ['correo_conductor'];
+//$modelo = $_POST ['modelo'];
+//$patente = $_POST ['patente'];
+//$marca = $_POST ['marca'];
 $nombre_usuario_conductor = $_POST ['Nombre_usuario_conductor'];
-$contrasena_post = $_POST ['contrasena'];
+$contrasena_post = $_POST ['contrasena_conductor'];
 $contrasena_hash = hash('sha512', $contrasena_post );
 
 
-$stmt = $conexion->prepare("INSERT INTO conductor(nombre, apellido, edad, cedula, correo, modelo, patente, marca, nombre_usuario_conductor, contrasena) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conexion->prepare("INSERT INTO conductor(nombre_conductor, apellido_conductor, edad_conductor, cedula_conductor, correo_conductor, nombre_usuario_conductor, contrasena_conductor) VALUE (?, ?, ?, ?, ?, ?, ?)");
 
-$stmt->bind_param("ssssssssss",
-      $nombre, $apellido, $edad, $cedula, $correo, $modelo, $patente , $marca, $nombre_usuario_conductor, $contrasena_hash);
+$stmt->bind_param("sssssss",
+      $nombre, $apellido, $edad, $cedula, $correo,$nombre_usuario_conductor, $contrasena_hash);
 
 
 $ejecutar = $stmt->execute();
@@ -33,7 +31,7 @@ if($ejecutar){
           windows.location = "../index.php";
           </script>
           ';
-          
+          header("location: ../usuario.php");
 
    }else{
     echo '
@@ -47,8 +45,6 @@ if($ejecutar){
 
     $stmt->close();
     mysqli_close($conexion);
-}
-else{
-      echo "no validado";
-}
+
+
 ?>

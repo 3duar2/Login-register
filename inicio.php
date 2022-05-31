@@ -25,22 +25,20 @@ session_destroy();
     <div class="contenedor__todo">
                 <div class="caja__trasera">
                     <div class="caja__trasera-login">
-                        <h3>Apartado cliente</h3>
+                        <h3>Apartado Conductor</h3>
                         <p>Elija uno de los apartados</p>
-                        
-                        <a href="/login-register/index.php" class="caja__trasera">Iniciar Sesión</a>
+                        <form action="php/ir_a_index.php" method="POST" class="formulario_inicio_conductor">
+                        <button>Ingresar Conductor</button>
 
                         
-                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
-                        <button id="btn__registrarse">Regístrarse</button>
                         
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>Conductor</h3>
+                        <h3>Apartapdo Usuario</h3>
                         <p>Elija uno de los apartados</p>
-                        <form action="php/ir_a_inicio.php" method="POST" class="formulario_inicio">
-                        <button id="btn__registrarse">Iniciar Sesión</button>
-                        <button id="btn__registrarse">Regístrarse</button>
+                        <form action="php/ir_a_usuario.php"  method="POST" class="formulario_inicio">
+                        
+                        <a href="/login-register/usuario.php" class="caja__trasera">Ingresar</a>
                         
                     </div>
                 </div>

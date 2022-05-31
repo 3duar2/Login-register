@@ -4,10 +4,10 @@ include 'conexion_be.php';
 session_start();
 
 
-$correo = $_POST['correo']; 
-$contrasena = $_POST['contrasena'];
+$correo = $_POST['correo_conductor']; 
+$contrasena = $_POST['contrasena_conductor'];
 
-$sql = "SELECT * FROM conductor WHERE correo='$correo' and contrasena= md5('$contrasena'); ";
+$sql = "SELECT * FROM conductor WHERE correo_conductor='$correo' and contrasena_conductor= md5('$contrasena'); ";
 $result = mysqli_query($conexion,$sql);
 //var_dump($result);
 //echo $sql;
@@ -16,20 +16,21 @@ $result = mysqli_query($conexion,$sql);
     // output data of each row
     if($row = mysqli_fetch_array($result)) {
       echo "correo: " . $correo . "cantidad en bdd" . $row["contar"]. "<br>";
-      $_SESSION['correo'] = $correo;
+      $_SESSION['correo_conductor'] = $correo;
       
-      $_SESSION['correo'] = $correo;
-      $_SESSION['nombre'] = $row["nombre"];
-      $_SESSION['correo'] = $row["apellido"];
-      $_SESSION['correo'] = $row["apellido"];
-      $_SESSION['correo'] = $row["cedula"];
-      $_SESSION['correo'] = $row["correo"];
-           header("location: perfil_cliente.php");
+      $_SESSION['correo_conductor'] = $correo;
+      $_SESSION['nombre_conductor'] = $row["nombre_conductor"];
+      $_SESSION['apellido_conductor'] = $row["apellido_conductor"];
+      $_SESSION['id_conductor'] = $row["id_conductor"];
+      $_SESSION['cedula_conductor'] = $row["cedula_conductor"];
+      $_SESSION['nombre_usuario_conductor'] = $row["nombre_usuario_conductor"];
+           header("location: perfilconductor.php");
       
     }
     else
     {
       echo "Error en conexion";
+      header("location: perfilconductor.php");
     }
    
   $conexion->close();
