@@ -2,6 +2,13 @@
 
 include 'conexion_be.php';
 session_start();
+if(isset($_SESSION['correo_usuario']))
+    {
+    
+    
+echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo_usuario'];
+
+}
 
 
 $correo = $_POST['correo_conductor']; 

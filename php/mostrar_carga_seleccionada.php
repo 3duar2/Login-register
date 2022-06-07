@@ -11,6 +11,16 @@ include 'conexion_be.php';
 
 
 //}
+
+session_start();
+
+    
+
+if(isset($_SESSION['id_carga']))
+{
+echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,19 +38,17 @@ include 'conexion_be.php';
 <body>
  
     
-        <h1> Tu cargas en curso son: </h1>
-
-        <h2> Que carga desea ver: </h2>
+        <h2> Carga recibida: </h2>
         <div>
-        <form action="buscar_carga.php" method="POST" class="entregado">
-        <input type="text" placeholder="ID:" name="id_carga" value="">
-        <button> Ver esta carga </button>
+        <form action="eliminar_carga_usuario.php" method="POST" class="entregado"> 
+            <button> Carga recibida </button>
+        </div>
+        <h2> Actualizar estado: </h2>
+        <div>
+        <form action="buscar_carga.php" method="POST" class="cambiar_estado"> 
+            <button> cambiar estado </button>
         </div>
         </br>
-
-
-
-       <td> <a href="/login-register/php/perfil_cliente.php" class="caja__trasera">carga Entregada</a></td>
 
 
     
@@ -73,8 +81,18 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $row['largo_carga']?></td>
             
         </tr> 
+        
 <?php
 /*
+<h1> Tu cargas en curso son: </h1>
+
+        
+        <input type="text" placeholder="ID:" name="id" value="">
+       
+
+
+
+       <td> <a href="/login-register/php/perfil_cliente.php" class="caja__trasera">carga Entregada</a></td>
 
  <td>Region de recogida</td>
             <td>comuna de recogida</td>

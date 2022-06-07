@@ -1,12 +1,10 @@
 <?php
  session_start();
 
- if(isset($_SESSION['correo']))
+ if(isset($_SESSION['correo_usuario']))
     {
     
     
-echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo'];
-echo"<h2>nombre </h2>".$_SESSION['nombre'];
 
 
 }
@@ -33,7 +31,7 @@ echo"<h2>nombre </h2>".$_SESSION['nombre'];
                     <div class="caja__trasera-login">
                         <h3>Solicitar transporte</h3>
                         <p>Agregar una carga</p>
-                        <form action="ir_a.php" method="POST" class="agregar_carga">
+                        <form action="ir_a.php" method="POST" class="agregar_carga_usuario">
                         <button id="btn__iniciar-sesion">Agregar Carga</button>
                         
                         
@@ -42,7 +40,7 @@ echo"<h2>nombre </h2>".$_SESSION['nombre'];
                 </div>
               <div class="contenedor_carga_curso">
                 <div class="caja__trasera-register">
-                    <form action="ir_carga_curso.php" method="POST" class="carga_curso">
+                    <form action="ir_carga_curso.php" method="POST" class="carga_curso_usuario">
                         <h3>Cargas en curso</h3>
                         <p>Ver cargas en curso</p>
                         <a href="/login-register/php/ver_carga.php" class="caja__trasera">Ver carga</a>

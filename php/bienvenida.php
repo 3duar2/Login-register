@@ -32,9 +32,9 @@
                         <h2>Datos del producto</h2>
 
                         <h2> Dimensiones: </h2>
-                        <input type="text" placeholder="Alto:" name="alto_carga" value="12">
-                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="12">
-                        <input type="text" placeholder="Largo:" name="largo_carga" value="12" >
+                        <input type="text" placeholder="Alto:" name="alto_carga" value=" ">
+                        <input type="text" placeholder="Ancho:" name="ancho_carga" value=" ">
+                        <input type="text" placeholder="Largo:" name="largo_carga" value=" " >
 
                       <!--  <h2> Tipo de camion: </h2>
 

@@ -1,16 +1,28 @@
 
 
 <?php
-/*sesion_start();
-if(isset($_SESSION['correo']))
-{*/
 
 include "conexion_be.php";
+//sesion_start()
+//if(isset($_SESSION['correo']))
+//{
 
-$alto = $_POST ['alto_carga'];
-$ancho = $_POST ['ancho_carga'];
-$largo = $_POST ['largo_carga'];
+//}
 
+
+
+
+/*
+$sql = "INSERT INTO `carga`(`alto_carga`, `ancho_carga`, `largo_carga`) 
+VALUES ('[$alto]','[$ancho]','[$largo]')";
+$query = mysqli_query($conexion,$sql);
+
+if($query){
+echo "<script> alert('correcto');</script>";
+}else{
+echo "<script> alert('fallo');</script>";
+}
+*/
 /*
 $Cargas_de_tipo_seca = $_POST ['cargas_de_tipo_seca'];
 $Refrigerados = $_POST ['refrigerados'];
@@ -19,8 +31,9 @@ $Generales = $_POST ['generales'];
 $Tolva = $_POST ['tolva'];
 $Maquinarias = $_POST ['maquinarias'];
 $Contenedores_especiales = $_POST ['contenedores_especiales'];
-*/ 
-/*$estado = $_POST ['estado'];
+*/
+/* 
+$estado = $_POST ['estado'];
 $region_inicio = $_POST ['region_inicio'];
 $comuna_inicio = $_POST ['comuna_inicio'];
 $direccion_inicio = $_POST ['direccion_inicio'];
@@ -30,11 +43,18 @@ $comuna_destino = $_POST ['comuna_destino'];
 $direccion_destino = $_POST ['direccion_destino'];
 $casa_departamento_n_destino = $_POST ['casa-departamento-n_destino'];
 */
+$alto = $_POST ['alto_carga'];
+$ancho = $_POST ['ancho_carga'];
+$largo = $_POST ['largo_carga'];
 
+//"INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)"
+$stmt = $conexion->prepare("INSERT INTO carga(alto_carga, ancho_carga, largo_carga) VALUE (?, ?, ?)");
 
-$stmt = $conexion->prepare("INSERT INTO carga(alto_carga, ancho_carga, largo_carga,) VALUE (?,?,?)");
+//echo"datos rescatados". $stmt;
 
-$stmt->bind_param("sss",$alto, $ancho, $largo);
+$stmt->bind_param("sss",
+   $alto, $ancho, $largo);
+//$stmt->bind_param("sss", $firstname, $lastname, $email);
 
 
 $ejecutar = $stmt->execute();
@@ -69,5 +89,6 @@ if($ejecutar){
 
     $stmt->close();
     mysqli_close($conexion);
+
 
 ?>
