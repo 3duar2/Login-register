@@ -130,17 +130,11 @@ main{
     outline: none;
 }
 
-
-
-
 .formulario__login{
     opacity: 1;
     display: block;
+    height: 400px;
 }
-.formulario__register{
-    display: none;
-}
-
 
 
 @media screen and (max-width: 850px){
@@ -151,7 +145,7 @@ main{
 
     .caja__trasera{
         max-width: 350px;
-        height: 300px;
+        height: 240px;
         flex-direction: column;
         margin: auto;
     }

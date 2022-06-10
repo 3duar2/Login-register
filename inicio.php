@@ -34,7 +34,7 @@ session_destroy();
                         
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>Apartapdo Usuario</h3>
+                        <h3>Apartado Usuario</h3>
                         <p>Elija uno de los apartados</p>
                         <form action="php/ir_a_usuario.php"  method="POST" class="formulario_inicio">
                         

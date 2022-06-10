@@ -12,13 +12,12 @@ session_destroy();
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-
     <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
 
         <main>
-
             <div class="contenedor__todo">
                 <div class="caja__trasera">
                     <div class="caja__trasera-login">
@@ -27,9 +26,9 @@ session_destroy();
                         <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta cliente?</h3>
+                        <h3>¿Aún no tienes una cuenta?</h3>
                         <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse">Regístrarse</button>
+                        <button id="btn__registrarse" data-bs-toggle="modal" data-bs-target="#myModal">Registrar</button>
                     </div>
                 </div>
 
@@ -38,35 +37,97 @@ session_destroy();
                     <!--Login-->
                     <form action="php/login_conductor_be.php" method="POST" class="formulario__login">
                         <h2>Iniciar Sesión</h2>
-                       
-                        <input type="text" placeholder="Correo Electronico"name="correo_conductor" > 
+                        <input type="text" placeholder="Correo Electrónico"name="correo_conductor" > 
                         <input type="password" placeholder="Contraseña" name="contrasena_conductor">
                         <button>Entrar</button>
                     </form>
-
-                    <!--Register-->
-                    <form action="php/registro_conductor_be.php" method="POST" class="formulario__register">
-                        <h2>Regístrarse socio conductor</h2>
-                        <input type="text" placeholder="Nombre" name="nombre_conductor">
-                        <input type="text" placeholder="Apellido" name="apellido_conductor">
-                        <input type="text" placeholder="Edad" name="edad_conductor" >
-                        <input type="text" placeholder="Cedula identidad" name="cedula_conductor" >
-                        <input type="text" placeholder="Correo Electronico" name="correo_conductor">
-                        <input type="text" placeholder="Modelo" name="modelo">
-                        <input type="text" placeholder="Patente" name="patente">
-                        <input type="text" placeholder="Marca" name="marca">
-                        <input type="text" placeholder="Nombre usuario" name="Nombre_usuario_conductor">
-                        <input type="password" placeholder="Contrasena" name="contrasena_conductor">
-                        <button>Regístrarse</button>
-
-
-
-                     </form> 
                 </div>
             </div>
-
+        <!--Register-->
         </main>
-        <script>console("hola de rema pedref")</script>
+
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">¡Regístrate Ahora!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formulario_crear_conductor" class="formulario__register">
+                                    <div class="container">
+                                        <div class="row-12">
+                                         namespace
+                                         
+                                         
+                                         <div class="row">
+                                                <div class="col">
+                                                    <label>Nombre:</label>
+                                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre_usuario" name="nombre_usuario">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Apellido:</label>
+                                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido_usuario" name="apellido_usuario">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label>Nombre:</label>
+                                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre_usuario" name="nombre_usuario">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Apellido:</label>
+                                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido_usuario" name="apellido_usuario">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label>Fecha de Nacimiento:</label>
+                                                    <input type="date" class="form-control" placeholder="Fecha de Nacimiento" id="fecha_nacimiento_usuario" name="fecha_nacimiento_usuario">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Cédula identidad:</label>
+                                                    <input type="text" class="form-control" placeholder="Cédula identidad" id="cedula_usuario" name="cedula_usuario">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label>Contraseña:</label>
+                                                    <input type="password" class="form-control" placeholder="Contraseña" id="contrasena_usuario" name="contrasena_usuario">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Correo Electrónico:</label>
+                                                    <input type="email" class="form-control" placeholder="Correo Electrónico" id="correo_usuario" name="correo_usuario">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label>Región:</label>
+                                                    <div>
+                                                        <select class="form-control" id="region_usuario" name="region_usuario"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Comuna:</label>
+                                                    <div>
+                                                        <select class="form-control" id="comuna_usuario" name="comuna_usuario" disabled></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>     
+                                    <div>
+                                        <button class="btn btn-primary mt-3" id="registrar_conductor" value="Registrar">Registrar</button>
+                                    </div>   
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         <script src="assets/js/script.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/functions.js"></script>
 </body>
 </html>

@@ -2,13 +2,6 @@
 
 include 'conexion_be.php';
 session_start();
-if(isset($_SESSION['correo_usuario']))
-    {
-    
-    
-echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo_usuario'];
-
-}
 
 
 $correo = $_POST['correo_conductor']; 
@@ -19,6 +12,7 @@ $result = mysqli_query($conexion,$sql);
 //var_dump($result);
 //echo $sql;
 
+echo $row
 
     // output data of each row
     if($row = mysqli_fetch_array($result)) {

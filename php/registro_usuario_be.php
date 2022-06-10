@@ -22,8 +22,6 @@ $stmt->bind_param("sssssss",
 $ejecutar = $stmt->execute();
 
 if($ejecutar){
-    echo "correo_usuario: " . $correo . "cantidad en bdd" . $row["contar"]. "<br>";
-    $_SESSION['correo_usuario'] = $correo;
     echo '
           <script>
           alert("Usuario almacenado exitosamente");
@@ -42,8 +40,7 @@ if($ejecutar){
          </script>
          ';
       die(mysqli_error($conexion));
-    }
-    //header("location: ../usuario.php");
+    }header("location: ../usuario.php");
 
     $stmt->close();
     mysqli_close($conexion);

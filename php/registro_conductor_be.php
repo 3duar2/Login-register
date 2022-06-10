@@ -3,31 +3,37 @@
 
 include "conexion_be.php";
 
-$nombre = $_POST ['nombre_conductor'];
-$apellido = $_POST ['apellido_conductor'];
-$edad = $_POST ['edad_conductor'];
-$cedula = $_POST ['cedula_conductor'];
-$correo = $_POST ['correo_conductor'];
-//$modelo = $_POST ['modelo'];
-//$patente = $_POST ['patente'];
-//$marca = $_POST ['marca'];
-$nombre_usuario_conductor = $_POST ['Nombre_usuario_conductor'];
-$contrasena_post = $_POST ['contrasena_conductor'];
-$contrasena_hash = hash('sha512', $contrasena_post );
+$nombre_usuario = $_POST ['nombre_usuario'];
+$apellido_usuario = $_POST ['apellido_usuario'];
+$correo_usuario = $_POST ['correo_usuario'];
+$fecha_nacimiento_usuario = $_POST ['fecha_nacimiento_usuario'];
+$cedula_usuario = $_POST ['cedula_usuario'];
+$contrasena_usuario = $_POST ['contrasena_usuario'];
+$region_usuario = $_POST ['region_usuario'];
+$comuna_usuario = $_POST ['comuna_usuario'];
 
+// $stmt = $conexion->prepare("INSERT INTO usuarioes(id_tipo_usuario, nombre_usuario, apellido_usuario, edad_usuario, cedula_usuario, correo_usuario, nombre_usuario_usuario, contrasena_usuario) VALUE (?, ?, ?, ?, ?, ?, ?)");
 
-$stmt = $conexion->prepare("INSERT INTO conductor(nombre_conductor, apellido_conductor, edad_conductor, cedula_conductor, correo_conductor, nombre_usuario_conductor, contrasena_conductor) VALUE (?, ?, ?, ?, ?, ?, ?)");
+// $stmt->bind_param("sssssss",$nombre, $apellido, $edad, $cedula, $correo,$nombre_usuario_usuario, $contrasena_hash);
 
-$stmt->bind_param("sssssss",
-      $nombre, $apellido, $edad, $cedula, $correo,$nombre_usuario_conductor, $contrasena_hash);
+$stmt = $conexion->prepare("INSERT INTO usuarios(id_tipo_usuario, nombre_usuario, apellido_usuario, correo_usuario, fecha_nacimiento_usuario, cedula_usuario, contrasenia_usuario, region_usuario, comuna_usuario) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+$stmt->bind_param("sssssssss", 2,$nombre_usuario, $apellido_usuario, $correo_usuario, $fecha_nacimiento_usuario, $cedula_usuario,$contrasena_usuario, $region_usuario, $comuna_usuario);
 
 
 $ejecutar = $stmt->execute();
 
+// $stmt = $conexion->prepare("INSERT INTO usuarioes(id_tipo_usuario, nombre_usuario, apellido_usuario, edad_usuario, cedula_usuario, correo_usuario, nombre_usuario_usuario, contrasena_usuario) VALUE (?, ?, ?, ?, ?, ?, ?)");
+
+// $stmt->bind_param("sssssss",$nombre, $apellido, $edad, $cedula, $correo,$nombre_usuario_usuario, $contrasena_hash);
+
+
+// $ejecutar = $stmt->execute();
+
 if($ejecutar){
     echo '
           <script>
-          alert("Conductor almacenado exitosamente");
+          alert("usuario almacenado exitosamente");
           windows.location = "../index.php";
           </script>
           ';
@@ -36,7 +42,7 @@ if($ejecutar){
    }else{
     echo '
          <script>
-         alert("Intentalo de nuevo, conductor no almacenado");
+         alert("Intentalo de nuevo, usuario no almacenado");
           windows.location = "../index.php";
          </script>
          ';

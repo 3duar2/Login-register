@@ -1,13 +1,12 @@
 <?php
 
-$conexion = mysqli_connect("localhost", "root", "", "truck_in_trip");
+$conexion = mysqli_connect("localhost", "root", "", "tit_prototipo");
 
- /*/
-if($conexion) {
-    echo 'Conectado exitosamente a la Base de Datos';
-}else {
-    echo 'No se ha podido connectar a la Base de Datos';
-}
-*/
+// if($conexion) {
+//     echo 'Conectado exitosamente a la Base de Datos';
+// }else {
+//     echo 'No se ha podido connectar a la Base de Datos';
+// }
+
 
 ?>
