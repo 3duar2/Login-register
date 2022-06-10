@@ -57,8 +57,6 @@ session_destroy();
                                 <form id="formulario_crear_conductor" class="formulario__register">
                                     <div class="container">
                                         <div class="row-12">
-                                         namespace
-                                         
                                          
                                          <div class="row">
                                                 <div class="col">
@@ -129,5 +127,6 @@ session_destroy();
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/jquery-3.6.0.min.js"></script>
         <script src="assets/js/functions.js"></script>
+        <script>console.log("hola")</script>
 </body>
 </html>
