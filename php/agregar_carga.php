@@ -46,14 +46,20 @@ $casa_departamento_n_destino = $_POST ['casa-departamento-n_destino'];
 $alto = $_POST ['alto_carga'];
 $ancho = $_POST ['ancho_carga'];
 $largo = $_POST ['largo_carga'];
+$direccion_de_inicio = $_POST ['direccion_de_inicio'];
+$direccion_de_destino = $_POST ['direccion_de_destino'];
+$comentario = $_POST ['comentario_carga'];
+//$estado = $_POST ['recibida_estado'];
+//$region = $_POST ['nombre_region'];
+
 
 //"INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)"
-$stmt = $conexion->prepare("INSERT INTO carga(alto_carga, ancho_carga, largo_carga) VALUE (?, ?, ?)");
+$stmt = $conexion->prepare("INSERT INTO carga(alto_carga, ancho_carga, largo_carga, direccion_de_inicio, direccion_de_destino, comentario_carga) VALUE (?, ?, ?, ?, ?, ?)");
 
 //echo"datos rescatados". $stmt;
 
-$stmt->bind_param("sss",
-   $alto, $ancho, $largo);
+$stmt->bind_param("ssssss",
+   $alto, $ancho, $largo, $direccion_de_inicio, $direccion_de_destino, $comentario);
 //$stmt->bind_param("sss", $firstname, $lastname, $email);
 
 

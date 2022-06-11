@@ -32,8 +32,8 @@ include 'conexion_be.php';
 
         <h2> Que carga desea adjudicarse: </h2>
         <div>
-        <form action="elimina.php" method="POST" class="entregado">
-        <input type="text" placeholder="ID:" name="id" value="">
+        <form action="adjudica_carga_conductor.php" method="POST" class="entregado">
+        <input type="text" placeholder="ID:" name="id_carga" value="">
         <button> Adjudicar carga </button>
         </div>
         </br>
@@ -55,15 +55,10 @@ include 'conexion_be.php';
             <td>Alto</td>
             <td>Ancho</td>
             <td>Largo</td>
-            <td>Region de recogida</td>
-            <td>comuna de recogida</td>
-            <td>Direccion de recogida</td>
-            <td>Casa,departamento N° de recogida</td>
-            <td>Region de destino</td>
-            <td>comuna de destino</td>
+            <td>Direccion de inicio</td>
             <td>Direccion de destino</td>
-            <td>Region de destino</td>
-            <td>Casa,departamento N° de destino</td>
+            <td>Informacion adicional</td>
+           
         </tr>
         <?php
         
@@ -79,6 +74,24 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $row['alto_carga']?></td>
             <td><?php echo $row['ancho_carga']?></td>
             <td><?php echo $row['largo_carga']?></td>
+            <td><?php echo $row['direccion_de_inicio']?></td>
+            <td><?php echo $row['direccion_de_destino']?></td>
+            <td><?php echo $row['comentario_carga']?></td>
+           
+        </tr> 
+<?php /* <td>Region de recogida</td>
+            <td>comuna de recogida</td>
+            <td>Direccion de recogida</td>
+            <td>Casa,departamento N° de recogida</td>
+            <td>Region de destino</td>
+            <td>comuna de destino</td>
+            <td>Direccion de destino</td>
+            <td>Region de destino</td>
+            <td>Casa,departamento N° de destino</td>
+
+
+
+            ____________________________________________
             <td><?php echo $row['region_inicio']?></td>
             <td><?php echo $row['comuna_inicio']?></td>
             <td><?php echo $row['direccion_inicio']?></td>
@@ -87,10 +100,7 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $row['comuna_destino']?></td>
             <td><?php echo $row['direccion_destino']?></td>
             <td><?php echo $row['casa_departamento_n_destino']?></td>
-            <td><?php echo $row['id_estado']?></td>
-        </tr> 
-<?php
-
+            <td><?php echo $row['id_estado']?></td> */
 }
 ?>
 

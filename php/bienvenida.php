@@ -32,9 +32,39 @@
                         <h2>Datos del producto</h2>
 
                         <h2> Dimensiones: </h2>
-                        <input type="text" placeholder="Alto:" name="alto_carga" value=" ">
-                        <input type="text" placeholder="Ancho:" name="ancho_carga" value=" ">
-                        <input type="text" placeholder="Largo:" name="largo_carga" value=" " >
+                        <input type="text" placeholder="Alto:" name="alto_carga" value="">
+                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="">
+                        <input type="text" placeholder="Largo:" name="largo_carga" value="" >
+
+
+
+                      <div>  
+                      <h2> Estado de la carga: </h2>
+                        <label for="recibida_estado">Estado inicial de la carga:</label>
+
+                        <select id="estado" name="estado">
+
+                        <option value="recibida_estado">Recepcionada</option>
+                        
+ 
+
+
+                        </select> 
+                       </div>
+
+                        <h2> Region: </h2>
+                        <input type="text" placeholder="Region:" name="nombre_region" value="" >
+
+
+                        <h2> Direccion donde se recogera la carga: </h2>
+                        <input type="text" placeholder="Direccrion de inicio:" name="direccion_de_inicio" value="" >
+
+                        <h2> Direccion donde se entregara la carga: </h2>
+                        <input type="text" placeholder="Direccrion de destino:" name="direccion_de_destino" value="" >
+
+                        <h2> Agregar informacion adicional al conductor: </h2>
+                        <textarea name="comentario_carga"  placeholder="Ingresa tu mensaje"></textarea>
+
 
                       <!--  <h2> Tipo de camion: </h2>
 

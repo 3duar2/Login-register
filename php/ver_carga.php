@@ -40,7 +40,7 @@ include 'conexion_be.php';
 
 
 
-       <td> <a href="/login-register/php/perfil_cliente.php" class="caja__trasera">carga Entregada</a></td>
+      
 
 
     
@@ -55,7 +55,9 @@ include 'conexion_be.php';
             <td>Alto</td>
             <td>Ancho</td>
             <td>Largo</td>
-           
+            <td>Direccion de inicio</td>
+            <td>Direccion de destino</td>
+            <td>Informacion adicional</td>
         </tr>
         <?php
         
@@ -71,6 +73,9 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $row['alto_carga']?></td>
             <td><?php echo $row['ancho_carga']?></td>
             <td><?php echo $row['largo_carga']?></td>
+            <td><?php echo $row['direccion_de_inicio']?></td>
+            <td><?php echo $row['direccion_de_destino']?></td>
+            <td><?php echo $row['comentario_carga']?></td>
             
         </tr> 
 <?php
