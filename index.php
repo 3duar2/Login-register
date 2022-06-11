@@ -66,7 +66,7 @@ session_destroy();
             </div>
 
         </main>
-
+        <script>console.log("hola")</script>
         <script src="assets/js/script.js"></script>
 </body>
 </html>
