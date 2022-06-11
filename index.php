@@ -50,22 +50,27 @@ session_destroy();
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">¡Regístrate Ahora!</h5>
+                                <h5 class="modal-title">¡Regístrate Ahora! ¿Eres Cliente o Conductor?</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
                             <div class="modal-body">
                                 <form id="formulario_crear_conductor" class="formulario__register">
                                     <div class="container">
                                         <div class="row-12">
-                                         
-                                         <div class="row">
-                                                <div class="col">
-                                                    <label>Nombre:</label>
-                                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre_usuario" name="nombre_usuario">
+                                            <div class="row">
+                                                <div class="col form-check">
+                                                    <input class="form-check-input" type="radio" name="cliente_o_conductor" id="cliente_usuario"
+                                                    value=1>
+                                                    <label class="form-check-label" for="cliente_usuario">
+                                                        Cliente
+                                                    </label>
                                                 </div>
-                                                <div class="col">
-                                                    <label>Apellido:</label>
-                                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido_usuario" name="apellido_usuario">
+                                                <div class="col form-check">
+                                                    <input class="form-check-input" type="radio" name="cliente_o_conductor" id="conductor_usuario"
+                                                    value=2>
+                                                    <label class="form-check-label" for="conductor_usuario">
+                                                        Conductor
+                                                    </label>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -101,21 +106,20 @@ session_destroy();
                                             <div class="row">
                                                 <div class="col">
                                                     <label>Región:</label>
-                                                    <div>
-                                                        <select class="form-control" id="region_usuario" name="region_usuario"></select>
-                                                    </div>
+                                                        <select class='form-control' id='region_usuario' name='region_usuario'>
+                                                        </select>
                                                 </div>
                                                 <div class="col">
                                                     <label>Comuna:</label>
-                                                    <div>
-                                                        <select class="form-control" id="comuna_usuario" name="comuna_usuario" disabled></select>
-                                                    </div>
+                                                    <select class='form-control' id='comuna_usuario' name='comuna_usuario' 
+                                                    disabled>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>     
                                     <div>
-                                        <button class="btn btn-primary mt-3" id="registrar_conductor" value="Registrar">Registrar</button>
+                                        <input type="button" class="btnRegistrar btn btn-primary mt-3" id="registrar_usuario" value="Registrar">
                                     </div>   
                                 </form> 
                             </div>
@@ -126,7 +130,7 @@ session_destroy();
         <script src="assets/js/script.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/sweetAlert.js"></script>
         <script src="assets/js/functions.js"></script>
-        <script>console.log("hola")</script>
 </body>
 </html>

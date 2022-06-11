@@ -1,30 +1,33 @@
 $(document).ready(()=>{
-    if($("#myModal").length){
+    //if($("#myModal").length){
         cargarListaRegiones();
-    }
+    //}
 })
+/*
+$("#formulario_crear_conductor").submit((event)=>{
+    event.preventDefault()
+})
+*/
+$("#registrar_usuario").click(()=>{
 
-$("#registrar_conductor").click(()=>{
-    $("#formulario_crear_conductor").submit((event)=>{
-        event.preventDefault()
-    })
-    console.log("click")
-
+            const cliente_o_conductor = $("input[name=cliente_o_conductor]:checked").val();
             const nombre_usuario = $("#nombre_usuario").val();
             const apellido_usuario = $("#apellido_usuario").val();
-            const correo_usuario = $("#correo_usuario").val();
             const fecha_nacimiento_usuario = $("#fecha_nacimiento_usuario").val();
             const cedula_usuario = $("#cedula_usuario").val();
             const contrasena_usuario = $("#contrasena_usuario").val();
+            const correo_usuario = $("#correo_usuario").val();
             const region_usuario = $("#region_usuario").val();
             const comuna_usuario = $("#comuna_usuario").val();
-            console.log(region_usuario)
+            const action = "registrarUsuario";
+            console.log(cliente_o_conductor)
 
             $.ajax({
-                url  : "php/registro_conductor_be.php",
+                url  : "php/ajaxData.php",
                 type : "POST",
                 async: true,
                 data :{
+                    cliente_o_conductor:cliente_o_conductor,
                     nombre_usuario:nombre_usuario, 
                     apellido_usuario:apellido_usuario, 
                     correo_usuario:correo_usuario,
@@ -32,28 +35,49 @@ $("#registrar_conductor").click(()=>{
                     cedula_usuario:cedula_usuario,
                     contrasena_usuario:contrasena_usuario,
                     region_usuario:region_usuario,
-                    comuna_usuario:comuna_usuario
+                    comuna_usuario:comuna_usuario,
+                    action:action
                 },
                 beforeSend: function(){
 
                 },
                 success   : function(response){
 
-                    
-                    
+                    if(response == "notData"){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Usuario no creado',
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: false,
+                            stopKeydownPropagation: false
+                            })
+                    }else{
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Usuario creado',
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: false,
+                            stopKeydownPropagation: false
+                            })
+
+                            $("#myModal").hide()
+                    }
                 },
                 error     : function(error){
                     console.log(error);
                 }
             });
-})
+})  
 
-$("#region_usuario").change(()=>{
+$("#region_usuario").change(()=>{ 
     const id_region = $("#region_usuario").val()
     
 const cargarListaComunas = id_region
     const action = "listarComunas";
-    const data = "";
 
     $.ajax({
         url  :"php/ajaxData.php",
@@ -68,13 +92,12 @@ const cargarListaComunas = id_region
         },
         success:function(response){
             if(response == "notData"){
-                data = "No hay datos para mostrar.";
+                response = "No hay datos para mostrar.";
+                $("#comuna_usuario").html(response);
             }else{
-                var data = JSON.parse(response);
-            }
-            $("#comuna_usuario").prop("disabled","")
-            $("#comuna_usuario").html(data);
-            
+                $("#comuna_usuario").prop("disabled","")
+                $("#comuna_usuario").html(response);
+            } 
         },
         error: function(error){
 
@@ -85,12 +108,11 @@ const cargarListaComunas = id_region
 
 function cargarListaRegiones(){
     const action = "listarRegiones";
-    const data = "";
 
     $.ajax({
         url  :"php/ajaxData.php",
         type : "Post",
-        async: true,
+        async: true,              
         data :{
             action:action
         },
@@ -99,11 +121,12 @@ function cargarListaRegiones(){
         },
         success:function(response){
             if(response == "notData"){
-                data = "No hay datos para mostrar.";
+                response = "No hay datos para mostrar.";
+                $("#region_usuario").html(response);
             }else{
-                var data = JSON.parse(response);
+                $("#region_usuario").html(response);
             }
-            $("#region_usuario").html(data);
+            
         },
         error: function(error){
 
