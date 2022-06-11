@@ -28,7 +28,7 @@ session_destroy();
                     <div class="caja__trasera-register">
                         <h3>¿Aún no tienes una cuenta?</h3>
                         <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse" data-bs-toggle="modal" data-bs-target="#myModal">Registrar</button>
+                        <button id="abrir_modal">Registrar</button>
                     </div>
                 </div>
 
@@ -51,7 +51,6 @@ session_destroy();
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">¡Regístrate Ahora! ¿Eres Cliente o Conductor?</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
                             <div class="modal-body">
                                 <form id="formulario_crear_conductor" class="formulario__register">

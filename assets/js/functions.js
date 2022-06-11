@@ -1,7 +1,5 @@
 $(document).ready(()=>{
-    //if($("#myModal").length){
         cargarListaRegiones();
-    //}
 })
 /*
 $("#formulario_crear_conductor").submit((event)=>{
@@ -133,3 +131,7 @@ function cargarListaRegiones(){
         }
     });
 }
+
+$("#abrir_modal").click(()=>{
+    $("#myModal").show()
+})

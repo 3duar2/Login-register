@@ -55,10 +55,12 @@
             $comuna_usuario = $_POST["comuna_usuario"];
 
 
-            $query_select = mysqli_query($conexion,"INSERT INTO usuarios (id_tipo_usuario, nombre_usuario, apellido_usuario, correo_usuario, fecha_nacimiento_usuario, cedula_usuario, contrasenia_usuario, id_region, id_comuna) VALUES ('$cliente_o_conductor','$nombre_usuario','$apellido_usuario', ,'$correo_usuario', ,'$fecha_nacimiento_usuario','$cedula_usuario','$contrasena_usuario','$region_usuario','$comuna_usuario')");
+            $query_select = mysqli_query($conexion,"INSERT INTO usuarios (id_tipo_usuario, nombre_usuario, apellido_usuario, correo_usuario, fecha_nacimiento_usuario, cedula_usuario, contrasenia_usuario, id_region, id_comuna) VALUES ('$cliente_o_conductor','$nombre_usuario','$apellido_usuario','$correo_usuario','$fecha_nacimiento_usuario','$cedula_usuario','$contrasena_usuario','$region_usuario','$comuna_usuario')");
 
-            echo $query_select;
-
-            exit;  
+            if($query_select != 1){
+                    echo "notData";
+            }
+            
+            exit; 
             
         }
