@@ -1,16 +1,6 @@
-<?php
+<?php 
+include_once ('templates/header.php');
 include 'conexion_be.php';
- //session_start();
-
- //if(isset($_SESSION['correo']))
-   // {
-    
-    
-//echo"<h1> Usuario  </h1>".$_SESSION['correo'];
-//echo"<h2>Nombre </h2>".$_SESSION['nombre'];
-
-
-//}
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +12,29 @@ include 'conexion_be.php';
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
- 
-    
-        <h1> Cargas disponibles: </h1>
-
-        <h2> Que carga desea adjudicarse: </h2>
-        <div>
-        <form action="elimina.php" method="POST" class="entregado">
-        <input type="text" placeholder="ID:" name="id" value="">
-        <button> Adjudicar carga </button>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 pt-3 pb-3 bg-light from-wrapper".bg-light>
+        
+        <div class="col-md-10">
+        <h1> Cargas disponibles</h1>
         </div>
+        <hr>
+        <h2> Que carga desea adjudicarse: </h2>
+        <div class="row">
+        <div class="col-md-4"> 
+        <form action="elimina.php" method="POST" class="entregado">
+        <input type="text" class="form-control" placeholder="ID:" name="id" value="">
+        </form>
+</div>
+        <div class="col-md-4">
+        <button class="btn btn-primary"> Adjudicar carga </button>
+        </div>
+        </div>
+         
         </br>
 
 
@@ -96,7 +95,9 @@ $result = mysqli_query($conexion,$sql);
 
     
 
-  
+</div>
+</div>
+</div>
 
 
 </body>
