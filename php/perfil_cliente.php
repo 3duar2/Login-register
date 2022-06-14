@@ -1,4 +1,5 @@
 <?php
+include_once ('templates/header.php');
  session_start();
 
  if(isset($_SESSION['correo_usuario']))
@@ -19,25 +20,25 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="/Login-Register/css/bootstrap.min.css">
+    
+    
 </head>
 <body>
 
-    <main>
-
-    <div class="contenedor__todo">
-                <div class="caja__trasera">
-                    <div class="caja__trasera-login">
-                        <h3>Solicitar transporte</h3>
-                        <p>Agregar una carga</p>
-                        <form action="ir_a.php" method="POST" class="agregar_carga_usuario">
-                        <button id="btn__iniciar-sesion">Agregar Carga</button>
-                        
-                        
-                    </div>
-                   
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 pt-3 pb-3 bg-light from-wrapper".bg-light>
+                <div class="col-md-12">       
+                <h2>Solicitar transporte</h2>
                 </div>
+                <div class="row">
+                        <h3>Agregar una carga</h3>
+                        <form action="ir_a.php" method="POST" class="agregar_carga_usuario">
+                        <button class="btn btn-primary"id="btn__iniciar-sesion">Agregar Carga</button>
+</div>       
+                        
+
               <div class="contenedor_carga_curso">
                 <div class="caja__trasera-register">
                     <form action="ir_carga_curso.php" method="POST" class="carga_curso_usuario">
@@ -52,5 +53,9 @@
     </main>
 
 <script src="assets/js/script.js"></script>
+</div>
+   </div>
+ </div>
+
 </body>
 </html>

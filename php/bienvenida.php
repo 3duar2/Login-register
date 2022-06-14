@@ -1,12 +1,5 @@
 <?php
-    session_start();
-
-    
-
-    if(isset($_SESSION['correo']))
-    {
-    echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo'];
-    }
+include_once ('templates/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,24 +10,59 @@
     <title>Agregar carga </title>
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="/Login-Register/css/bootstrap.min.css">
 </head>
 <body>
-        <main>
-
-
-            
-
-               <div>
-                    <!--Register carga-->
-                     <form action="agregar_carga.php" method="POST" class="formulario_agregar_carga_usuario">
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 pt-3 pb-3 bg-light from-wrapper".bg-light>
+<!--Register carga-->
+<?php
+ session_start();
+ if(isset($_SESSION['correo']))
+    {
+    echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo'];
+    }
+?>           
+        
+        <!--Register carga-->
+        <form action="agregar_carga.php" method="POST" class="formulario_agregar_carga_usuario">
                         <h2>Datos del producto</h2>
 
                         <h2> Dimensiones: </h2>
-                        <input type="text" placeholder="Alto:" name="alto_carga" value=" ">
-                        <input type="text" placeholder="Ancho:" name="ancho_carga" value=" ">
-                        <input type="text" placeholder="Largo:" name="largo_carga" value=" " >
+                        <input type="text" placeholder="Alto:" name="alto_carga" value="">
+                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="">
+                        <input type="text" placeholder="Largo:" name="largo_carga" value="" >
+
+
+
+                      <div>  
+                      <h2> Estado de la carga: </h2>
+                        <label for="agregar_carga">Estado inicial de la carga:</label>
+
+                        <select id="estado" name="carga no adjudicada">
+
+                        <option value="carga no adjudicada">Carga no adjudicada</option>
+                        
+ 
+
+
+                        </select> 
+                       </div>
+
+                        <h2> Region: </h2>
+                        <input type="text" placeholder="Region:" name="nombre_region" value="" >
+
+
+                        <h2> Direccion donde se recogera la carga: </h2>
+                        <input type="text" placeholder="Direccrion de inicio:" name="direccion_de_inicio" value="" >
+
+                        <h2> Direccion donde se entregara la carga: </h2>
+                        <input type="text" placeholder="Direccrion de destino:" name="direccion_de_destino" value="" >
+
+                        <h2> Agregar informacion adicional al conductor: </h2>
+                        <textarea name="comentario_carga"  placeholder="Ingresa tu mensaje"></textarea>
+
 
                       <!--  <h2> Tipo de camion: </h2>
 
@@ -81,11 +109,13 @@
         </main>
 
         <script src="assets/js/script.js"></script>
-</body>
+        </div>
+         </div>
+</div>
+      </body>
 <?php
 //    }
   //  else
     //echo "no valida";
 ?>
-</html> 
-
+</html>
