@@ -60,6 +60,17 @@ include 'conexion_be.php';
 
     <br>
     <?php
+  ?>  <table>
+        <tr>
+            <td>ID</td>
+            <td>Alto</td>
+            <td>Ancho</td>
+            <td>Largo</td>
+            <td>Direccion de inicio</td>
+            <td>Direccion de destino</td>
+            <td>Informacion adicional</td>
+        </tr>
+        <?php
         
         $sql = "SELECT * FROM carga ";
 $result = mysqli_query($conexion,$sql);
@@ -90,6 +101,14 @@ $result = mysqli_query($conexion,$sql);
         </div>
         </div>
      </div>
+            <td><?php echo $row['alto_carga']?></td>
+            <td><?php echo $row['ancho_carga']?></td>
+            <td><?php echo $row['largo_carga']?></td>
+            <td><?php echo $row['direccion_de_inicio']?></td>
+            <td><?php echo $row['direccion_de_destino']?></td>
+            <td><?php echo $row['comentario_carga']?></td>
+            
+        </tr> 
 <?php
 
 

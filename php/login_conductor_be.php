@@ -37,8 +37,8 @@ $result = mysqli_query($conexion,$sql);
     else
     {
       echo "Error en conexion";
-      header("location: perfilconductor.php");
-    }
+      
+    }header("location: perfilconductor.php");
    
   $conexion->close();
 

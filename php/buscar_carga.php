@@ -18,6 +18,12 @@ $result = mysqli_query($conexion,$sql);
     if($row = mysqli_fetch_array($result)) {
       echo "correo_usuario: " . $id . "cantidad en bdd" . $row["contar"]. "<br>";
       $_SESSION['id_carga'] = $id;
+      //$_SESSION['tipo_carga'] = $tipo_carga;
+      //$_SESSION['alto_carga'] = $alto_carga;
+      //$_SESSION['ancho_carga'] = $ancho_carga;
+      //$_SESSION['largo_carga'] = $largo_carga;
+      //$_SESSION['id_region'] = $id_region;
+      //$_SESSION['id_estado'] = $id_estado;
      
       
            header("location: mostrar_carga_seleccionada.php");

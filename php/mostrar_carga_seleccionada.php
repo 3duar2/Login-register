@@ -14,6 +14,19 @@ include_once ('templates/header.php');
 //}
 
 
+    
+
+if(isset($_SESSION['id_carga']))
+{
+echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['tipo_carga'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['alto_carga'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['ancho_carga'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['largo_carga'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_region'];
+//echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_estado'];
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +71,42 @@ include_once ('templates/header.php');
         <form action="buscar_carga.php" method="POST" class="cambiar_estado"> 
             <button class="btn btn-primary btn-lg"> cambiar estado </button>
         </div>
+ 
+    <div>
+        <h2> Carga recibida: </h2>
+        <div>
+        <form action="eliminar_carga_usuario.php" method="POST" class="entregado"> 
+            <button> Carga recibida </button>
+        </form>    
+    </div>
+
+
+
+       
+    <div>
+    <form action="actualizar_estado.php" method="POST" class="actualizar_estado">
+        <label for="estado">Actualizar estado:</label>
+
+        <select id="estado" name="estado">
+     
+            <option value="recibida_estado">Recepcionada</option>
+            <option value="en_trancito_estado">En transito</option>
+            <option value="entregada_estado">Entregada</option>
+        </select> 
+        <button> cambiar estado </button>
+    </form>
+    </div>
         </br>
 
+        <div>
+            <h2> Enviar mensaje : </h2>
+            <div>
+                <form action="php/ir_a_chat.php" method="POST" class="chat"> 
+                <a href="/login-register/php/chat.php" class="caja__trasera">Ingresar</a>
+            </div>
+            </br>
 
+        </div>
     
     
 
@@ -68,9 +114,25 @@ include_once ('templates/header.php');
 
     <br>
     <?php
+    ?>
+        <script src="assets/js/script.js"></script>
+    <div>
+        <br>
+        <table>
+        <tr>
+            <td>ID</td>
+            <td>Alto</td>
+            <td>Ancho</td>
+            <td>Largo</td>
+            <td>Direccion de inicio</td>
+            <td>Direccion de destino</td>
+            <td>Informacion adicional</td>
+           
+            </tr>
+        <?php
         
         $sql = "SELECT * FROM carga ";
-$result = mysqli_query($conexion,$sql);
+        $result = mysqli_query($conexion,$sql);
 
         while($row = mysqli_fetch_array($result)){
 
@@ -98,8 +160,26 @@ $result = mysqli_query($conexion,$sql);
         </div>
         </div>
      </div>
+            ?>
+                <tr>
+                <td><?php echo $row['id_carga']?></td>
+                <td><?php echo $row['alto_carga']?></td>
+                <td><?php echo $row['ancho_carga']?></td>
+                <td><?php echo $row['largo_carga']?></td>
+                <td><?php echo $row['direccion_de_inicio']?></td>
+                <td><?php echo $row['direccion_de_destino']?></td>
+                <td><?php echo $row['comentario_carga']?></td>
+            
+            </tr> 
+        </div>   
 <?php
 /*
+
+ <h2> Actualizar estado: </h2>
+        <div>
+        <form action="actualizar_estado.php" method="POST" class="cambiar_estado"> 
+        <h2> Tipo de camion: </h2>
+
 <h1> Tu cargas en curso son: </h1>
 
         
