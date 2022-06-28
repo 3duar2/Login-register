@@ -76,7 +76,7 @@ echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
         <h2> Carga recibida: </h2>
         <div>
         <form action="eliminar_carga_usuario.php" method="POST" class="entregado"> 
-            <button> Carga recibida </button>
+            <button class="btn btn-primary"> Carga recibida </button>
         </form>    
     </div>
 
@@ -89,9 +89,9 @@ echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
 
         <select id="estado" name="estado">
      
-            <option value="recibida_estado">Recepcionada</option>
-            <option value="en_trancito_estado">En transito</option>
-            <option value="entregada_estado">Entregada</option>
+            <option value="recibida estado">Recepcionada</option>
+            <option value="en transito estado">En transito</option>
+            <option value="entregada estado">Entregada</option>
         </select> 
         <button> cambiar estado </button>
     </form>
@@ -118,17 +118,7 @@ echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
         <script src="assets/js/script.js"></script>
     <div>
         <br>
-        <table>
-        <tr>
-            <td>ID</td>
-            <td>Alto</td>
-            <td>Ancho</td>
-            <td>Largo</td>
-            <td>Direccion de inicio</td>
-            <td>Direccion de destino</td>
-            <td>Informacion adicional</td>
-           
-            </tr>
+
         <?php
         
         $sql = "SELECT * FROM carga ";
@@ -149,28 +139,36 @@ echo"<h1> Su carga seleccionada es:  </h1>".$_SESSION['id_carga'];
              </div>
              <div class="col-md-2">
              <td>Ancho</td>
-
              <td><?php echo $row['ancho_carga']?></td>
-
-             </div>
-             <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
              <td>Largo</td>
              <td><?php echo $row['largo_carga']?></td>
            </div>
         </div>
+           <div class="row">
+           <div class="col-md-4">
+             <td>Direccion de Inicio</td>
+             <td><?php echo $row['direccion_de_inicio']?></td>
+           </div>
+           <div class="col-md-4">
+             <td>Direccion de Destino</td>
+             <td><?php echo $row['direccion_de_destino']?></td>
+           </div>
         </div>
-     </div>
-            ?>
-                <tr>
-                <td><?php echo $row['id_carga']?></td>
-                <td><?php echo $row['alto_carga']?></td>
-                <td><?php echo $row['ancho_carga']?></td>
-                <td><?php echo $row['largo_carga']?></td>
-                <td><?php echo $row['direccion_de_inicio']?></td>
-                <td><?php echo $row['direccion_de_destino']?></td>
-                <td><?php echo $row['comentario_carga']?></td>
-            
-            </tr> 
+        <div class="row">
+           <div class="col-md-2">
+             <td>Informacion Adicional</td>
+             <td><?php echo $row['comentario_carga']?></td>
+           </div>
+           <div class="col-md-2">
+             <td>Estado de la carga</td>
+             <td><?php echo $row['estado']?></td>
+           </div>
+        </div>
+
+        
+
         </div>   
 <?php
 /*

@@ -42,9 +42,10 @@ include_once ('templates/header.php');
               <div class="contenedor_carga_curso">
                 <div class="caja__trasera-register">
                     <form action="ir_carga_curso.php" method="POST" class="carga_curso_usuario">
-                        <h3>Cargas en curso</h3>
-                        <p>Ver cargas en curso</p>
-                        <a href="/login-register/php/ver_carga.php" class="caja__trasera">Ver carga</a>
+                        <h3>Ver cargas en curso</h3>
+                       
+                        
+                        <a href="/login-register/php/ver_carga.php" class="btn btn-primary caja__trasera" >Ver carga</a>
                       
                         
                     </div>

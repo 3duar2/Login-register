@@ -17,52 +17,81 @@ include_once ('templates/header.php');
     <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-5 pt-3 pb-3 bg-light from-wrapper".bg-light>
 <!--Register carga-->
+
 <?php
  session_start();
  if(isset($_SESSION['correo']))
     {
-    echo"<h1> BIENVENIDO  </h1>".$_SESSION['correo'];
+    echo"<h2> BIENVENIDO</h2>".$_SESSION['correo'];
     }
 ?>           
-        
+
         <!--Register carga-->
         <form action="agregar_carga.php" method="POST" class="formulario_agregar_carga_usuario">
                         <h2>Datos del producto</h2>
-
+                        <hr>
                         <h2> Dimensiones: </h2>
-                        <input type="text" placeholder="Alto:" name="alto_carga" value="">
-                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="">
-                        <input type="text" placeholder="Largo:" name="largo_carga" value="" >
+                        <div class="row">
+                          <div class="col-sm-3">
+                        <input type="text" placeholder="Alto:" name="alto_carga" value="" class="form-control">
+                         </div>
+                        <div class="col-sm-3">
+                        <input type="text" placeholder="Ancho:" name="ancho_carga" value="" class="form-control">
+                        </div>
 
+                        <div class="col-sm-3">
+                        <input type="text" placeholder="Largo:" name="largo_carga" value="" class="form-control" >
+                        </div>
+                        </div>
+                        <br>
 
-
-                      <div>  
                       <h2> Estado de la carga: </h2>
+                      
+                      
+                      <div class="row">
+                      <div class="col-sm-3">
                         <label for="agregar_carga">Estado inicial de la carga:</label>
-
+                        </div>
+                        <div class="col-sm-3">
                         <select id="estado" name="carga no adjudicada">
-
+                        </div>
+                        <div class="col-sm-3">
                         <option value="carga no adjudicada">Carga no adjudicada</option>
-                        
+                        </div>
+                        </div>
  
 
 
                         </select> 
+                      
                        </div>
-
+                          
+                      
                         <h2> Region: </h2>
-                        <input type="text" placeholder="Region:" name="nombre_region" value="" >
-
-
+                        <div class="row">
+                          <div class="col-md-3">
+                        <input type="text" placeholder="Region:" name="nombre_region"  value="" class="form-control" >
+                        </div>
+                      </div>
+ 
                         <h2> Direccion donde se recogera la carga: </h2>
-                        <input type="text" placeholder="Direccrion de inicio:" name="direccion_de_inicio" value="" >
-
+                        <div class="row">
+                          <div class="col-md-3">
+                        <input type="text" placeholder="Direccrion de inicio:" name="direccion_de_inicio" value="" class="form-control" >
+                        </div>
+                      </div>
                         <h2> Direccion donde se entregara la carga: </h2>
-                        <input type="text" placeholder="Direccrion de destino:" name="direccion_de_destino" value="" >
-
+                        <div class="row">
+                          <div class="col-md-3">
+                        <input type="text" placeholder="Direccrion de destino:" name="direccion_de_destino" value="" class="form-control" >
+                        </div>
+                        
                         <h2> Agregar informacion adicional al conductor: </h2>
-                        <textarea name="comentario_carga"  placeholder="Ingresa tu mensaje"></textarea>
-
+                        <div class="row">
+                          <div class="col-md-3">
+                        <textarea name="comentario_carga" class="form-control" placeholder="Ingresa tu mensaje"></textarea>
+                        </div>
+                      
 
                       <!--  <h2> Tipo de camion: </h2>
 
@@ -99,10 +128,11 @@ include_once ('templates/header.php');
                         <input type="text" placeholder="Casa, Departamento N°:" value="12" name="casa-departamento-n_destino">
 
 -->
-                        
-                        <button> Agregar Carga </button>
+                          <div class="col-md-3">
+                        <button class="btn btn-primary"> Agregar Carga </button>
                    </form>
                 </div>   
+                </div>
                 
                
             
